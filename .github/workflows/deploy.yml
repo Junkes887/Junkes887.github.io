@@ -27,6 +27,9 @@ jobs:
       - name: Build
         run: npm run deploy
 
+      - name: Copiar arquivo CNAME
+        run: echo "henriquejunkes.dev" > ./out/CNAME
+
       - name: Deploy para GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
