@@ -1,72 +1,131 @@
 import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  VStack,
+  Image,
+  List,
+  ListItem,
+  Link,
+  Divider,
+} from "@chakra-ui/react";
 
 export default function Home() {
   return (
     <>
       <Head>
         <title>Henrique Junkes | Portfólio</title>
-        <meta name="description" content="Portfólio de Henrique Junkes, desenvolvedor full stack." />
+        <meta
+          name="description"
+          content="Portfólio de Henrique Junkes, desenvolvedor full stack."
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
-        <main className={styles.main}>
-          <h1 className={styles.title}>Henrique Junkes</h1>
-          <p className={styles.description}>
-            Desenvolvedor de sistemas apaixonado por tecnologia, com foco em soluções web escaláveis e interfaces modernas.
-          </p>
 
-          <section className={styles.section}>
-            <h2>🛠️ Experiência</h2>
-            <ul>
-              <li>+6 anos de experiência em desenvolvimento</li>
-              <li>Especialista em Java, JavaScript, TypeScript, Python e Go</li>
-              <li>Consultor na NTT DATA alocado no Itaú</li>
-              <li>Criação de APIs performáticas com chamadas assíncronas</li>
-              <li>Desenvolvedor da plataforma vitrine-me.com</li>
-            </ul>
-          </section>
+      <Box bg="#1E1E1E" color="#F9FAFB" minH="100vh" py={10}>
+        <Container maxW="container.md">
+          <VStack spacing={6} textAlign="center">
+            <Image
+              src="/henrique.jpeg"
+              alt="Henrique Junkes"
+              borderRadius="full"
+              boxSize="160px"
+              border="3px solid"
+              borderColor="#F9FAFB"
+              objectFit="cover"
+            />
+            <Heading as="h1" size="xl">
+              Henrique Junkes
+            </Heading>
+            <Text fontSize="lg">
+              Desenvolvedor de sistemas apaixonado por tecnologia, com foco em
+              soluções web escaláveis e interfaces modernas.
+            </Text>
+          </VStack>
 
-          <section className={styles.section}>
-            <h2>📁 Projetos</h2>
-            <ul>
-              <li>
-                <a href="https://vitrine-me.com" target="_blank" rel="noopener noreferrer">
+          <Divider my={10} borderColor="#F9FAFB" />
+
+          <Box as="section" mb={8}>
+            <Heading as="h2" size="lg" mb={4}>
+              🛠️ Experiência
+            </Heading>
+            <List spacing={2} pl={4}>
+              <ListItem>Mais de 6 anos de experiência em desenvolvimento de software</ListItem>
+              <ListItem>Especialista em Java, JavaScript e Go</ListItem>
+              <ListItem>Experiência sólida em provisionamento e serviços na AWS</ListItem>
+              <ListItem>Atuação como consultor na NTT DATA, alocado no Itaú</ListItem>
+              <ListItem>Criação de APIs performáticas com uso de chamadas assíncronas</ListItem>
+              <ListItem>
+                Desenvolvedor da plataforma{" "}
+                <Link href="https://vitrine-me.com" isExternal color="#3B82F6">
+                  vitrine-me.com
+                </Link>
+              </ListItem>
+            </List>
+          </Box>
+
+
+          <Box as="section" mb={8}>
+            <Heading as="h2" size="lg" mb={4}>
+              📁 Projetos
+            </Heading>
+            <List spacing={2} pl={4}>
+              <ListItem>
+                <Link
+                  href="https://vitrine-me.com"
+                  isExternal
+                  color="#3B82F6"
+                >
                   Vitrine-me: Plataforma para criação de sites institucionais
-                </a>
-              </li>
-              <li>
-                <a href="https://vitrine-me.com/automacao" target="_blank" rel="noopener noreferrer">
+                </Link>
+              </ListItem>
+              <ListItem>
+                <Link
+                  href="https://vitrine-me.com/automacao"
+                  isExternal
+                  color="#3B82F6"
+                >
                   Vitrine-me Automação: Automação de Leads B2B
-                </a>
-              </li>
-            </ul>
-          </section>
+                </Link>
+              </ListItem>
+            </List>
+          </Box>
 
-          <section className={styles.section}>
-            <h2>📫 Contato</h2>
-            <p>Entre em contato comigo via <a href="mailto:henriquejunkes887@gmail.com">e-mail</a> ou pelo <a href="https://www.linkedin.com/in/henrique-alves-junkes/" target="_blank" rel="noopener noreferrer">LinkedIn</a>.</p>
-          </section>
-        </main>
+          <Box as="section" mb={8}>
+            <Heading as="h2" size="lg" mb={4}>
+              📫 Contato
+            </Heading>
+            <Text>
+              Entre em contato comigo via{" "}
+              <Link
+                href="mailto:henriquejunkes887@gmail.com"
+                color="#3B82F6"
+              >
+                e-mail
+              </Link>{" "}
+              ou pelo{" "}
+              <Link
+                href="https://www.linkedin.com/in/henrique-alves-junkes/"
+                isExternal
+                color="#3B82F6"
+              >
+                LinkedIn
+              </Link>
+              .
+            </Text>
+          </Box>
 
-        <footer className={styles.footer}>
-          <p>&copy; {new Date().getFullYear()} Henrique Junkes. Todos os direitos reservados.</p>
-        </footer>
-      </div>
+          <Divider my={10} borderColor="#F9FAFB" />
+
+          <Text textAlign="center" fontSize="sm">
+            &copy; {new Date().getFullYear()} Henrique Junkes. Todos os direitos
+            reservados.
+          </Text>
+        </Container>
+      </Box>
     </>
   );
 }
