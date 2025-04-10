@@ -103,7 +103,7 @@ export default function Home() {
 
               <Box as="section" mb={8}>
                 <Heading as="h2" size="md" mb={4} color="#01D401">
-                  > Contato
+                  {"> Contato"}
                 </Heading>
                 <Text>
                   Entre em contato comigo via{" "}
